@@ -1,0 +1,28 @@
+{
+  "name": "nyt-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node server.js\" \"cd client && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielle16/nyt-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielle16/nyt-react/issues"
+  },
+  "homepage": "https://github.com/danielle16/nyt-react#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
