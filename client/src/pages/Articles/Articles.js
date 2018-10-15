@@ -5,7 +5,8 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Input, SearchBtn } from '../../components/Form';
 import DeleteBtn from "../../components/DeleteBtn";
-import { List, ListItem } from "../../components/List";
+import { List, ListItem } from "../../components/List"
+
 
 class Articles extends Component {
 
@@ -24,15 +25,15 @@ class Articles extends Component {
     loadArticles = () => {
         API.getArticles()
           .then(res =>
-            this.setState({ articles: res.data, title: "", date: "", url: ""})
+            this.setState({ articles: res.data.articles, title: "", date: "", url: ""})
           )
           .catch(err => console.log(err));
       };
 
 
-//   deleteBook = id => {
-//     API.deleteBook(id)
-//       .then(res => this.loadBooks())
+//   deleteArticle = id => {
+//     API.deleteArticle(id)
+//       .then(res => this.loadArticles())
 //       .catch(err => console.log(err));
 //   };
 
@@ -95,18 +96,18 @@ class Articles extends Component {
                         </Col>
                         <Col size="md-6 sm-12">
        
-              <h1>Books On My List</h1>
+              <h1>Articles On My List</h1>
         
             {this.state.articles.length ? (
               <List>
                 {this.state.articles.map(article => (
                   <ListItem key={article._id}>
-                    <Link to={"/books/" + article._id}>
+                    <Link to={"/articles/" + article._id}>
                       <strong>
                         {article.title} by {article.author}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(article._id)} />
+                    <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
                   </ListItem>
                 ))}
               </List>

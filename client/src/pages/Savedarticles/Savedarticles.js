@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 
+
 class Savedarticles extends Component {
     state = {
         articles: [],
@@ -20,9 +21,10 @@ class Savedarticles extends Component {
 
     loadArticles = () => {
         API.getArticles()
-            .then(res => this.setState({ article: res.data, title: "", date: "", url: "" })
+            .then(res => this.setState({ articles: res.data, title: "", date: "", url: "" })
             )
             .catch(err => console.log(err));
+          
     };
 
     handleInputChange = event => {
@@ -45,12 +47,6 @@ class Savedarticles extends Component {
                 .catch(err => console.log(err))
         }
     };
-
-    handleSearchButton = event => {
-        
-    }
-
-
 
     render() {
         return (
